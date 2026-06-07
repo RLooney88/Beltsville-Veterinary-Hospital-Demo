@@ -29,7 +29,7 @@
   },
   "test_credentials": {
     "admin_email": "admin@example-vet-site.com",
-    "admin_password": "Your CityVet2026!"
+    "admin_password": "BeltsvilleVet2026!"
   },
   "seed_data_creation": "Backend seeds admin user + 7 surfaces + multiple switches on startup",
   "retest_needed": false,

@@ -9,15 +9,15 @@
       "page": "home",
       "description": "Main hero on the homepage, swaps copy + image per intent.",
       "default_content": {
-        "eyebrow": "Trusted Care for Every Paw",
-        "headline": "Compassionate veterinary care for your whole family.",
-        "subheadline": "Veterinary Practice Name has been caring for Your City pets for years, wellness, surgery, dental, emergencies, and beyond.",
+        "eyebrow": "Trusted Beltsville Care Since 1965",
+        "headline": "Modern veterinary care with familiar neighborhood heart.",
+        "subheadline": "Beltsville Veterinary Hospital cares for dogs and cats with wellness exams, same-day sick visits, diagnostics, dental care, surgery, and boarding.",
         "primary_cta_label": "Schedule a Visit",
         "primary_cta_href": "/appointment",
-        "secondary_cta_label": "Call (000) 000-0000",
-        "secondary_cta_href": "tel:+10000000000",
-        "image_url": "/images/animals/hero-home-default.webp",
-        "badge": "Family-owned clinic in Your City, ST"
+        "secondary_cta_label": "Call (301) 937-3020",
+        "secondary_cta_href": "tel:+13019373020",
+        "image_url": "/images/beltsville/dental-exam-wide.webp",
+        "badge": "Serving Beltsville pets and families since 1965"
       },
       "switches": [
         {
@@ -27,19 +27,19 @@
           },
           "priority": 100,
           "content": {
-            "eyebrow": "Caring for Your City Dogs",
+            "eyebrow": "Caring for Beltsville Dogs",
             "headline": "Tails wag when you walk in the door.",
             "subheadline": "From first-puppy visits to senior care, we treat every dog like family.",
             "primary_cta_label": "Book a Dog Visit",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/hero-dogs-default.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         },
         {
-          "name": "Dogs → New Puppy",
+          "name": "Dogs \u2192 New Puppy",
           "rule": {
             "intent": "dogs",
             "sub_intent": "new_puppy"
@@ -51,14 +51,14 @@
             "subheadline": "Vaccine schedules, spay/neuter timing and early preventive care, all in one friendly visit.",
             "primary_cta_label": "Book Puppy's First Visit",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/puppy-hero-switch.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         },
         {
-          "name": "Dogs → Senior Care",
+          "name": "Dogs \u2192 Senior Care",
           "rule": {
             "intent": "dogs",
             "sub_intent": "senior"
@@ -70,10 +70,10 @@
             "subheadline": "Laser therapy, arthritis support, and chronic-condition monitoring for older dogs.",
             "primary_cta_label": "Senior Wellness Consult",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/hero-dogs-senior.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         },
         {
@@ -88,14 +88,14 @@
             "subheadline": "We go slow, we listen, and we put comfort first.",
             "primary_cta_label": "Book a Cat Visit",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/cat-hero-home.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         },
         {
-          "name": "Cats → New Kitten",
+          "name": "Cats \u2192 New Kitten",
           "rule": {
             "intent": "cats",
             "sub_intent": "new_kitten"
@@ -107,10 +107,10 @@
             "subheadline": "Kitten vaccines, spay/neuter timing, and gentle first visits.",
             "primary_cta_label": "Book Kitten's First Visit",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/hero-cats-kitten.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         },
         {
@@ -125,10 +125,10 @@
             "subheadline": "Let's talk about your pet and see if we're the right fit for their needs.",
             "primary_cta_label": "Contact the Clinic",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/hero-critters-page.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         },
         {
@@ -143,10 +143,10 @@
             "subheadline": "Describe what's going on and we'll guide you to the next best step, today.",
             "primary_cta_label": "Request an Urgent Visit",
             "primary_cta_href": "/appointment",
-            "secondary_cta_label": "Call (000) 000-0000",
-            "secondary_cta_href": "tel:+10000000000",
+            "secondary_cta_label": "Call (301) 937-3020",
+            "secondary_cta_href": "tel:+13019373020",
             "image_url": "/images/animals/hero-home-default.webp",
-            "badge": "Family-owned clinic in Your City, ST"
+            "badge": "Family-owned clinic in Beltsville, MD"
           }
         }
       ]
@@ -536,7 +536,7 @@
       "page": "home",
       "description": "Testimonials emphasised by intent.",
       "default_content": {
-        "heading": "Families across Your City trust us with their pets.",
+        "heading": "Families across Beltsville trust us with their pets.",
         "testimonials": [
           {
             "quote": "the veterinarian's love, knowledge and respect for animals is unparalleled. She does not waste your money on unnecessary tests yet does everything she can to find the problem and get your pet healthy.",
@@ -544,7 +544,7 @@
             "tag": "Wellness"
           },
           {
-            "quote": "If I could give Veterinary Practice Name more stars, I would! From their receptionists to techs to doctors, they are all kind, attentive, understanding and knowledgeable.",
+            "quote": "If I could give Beltsville Veterinary Hospital more stars, I would! From their receptionists to techs to doctors, they are all kind, attentive, understanding and knowledgeable.",
             "author": "First-time dog owner",
             "tag": "New Puppy"
           },
@@ -552,6 +552,23 @@
             "quote": "The team performed orthopedic surgery on my beagle. She is pretty much back to her normal self. Everyone is very friendly and professional.",
             "author": "Beagle mom",
             "tag": "Surgery"
+          }
+        ],
+        "eyebrow": "Beltsville roots",
+        "headline": "Long-standing care for Prince George\u2019s County pets.",
+        "body": "Families from Beltsville, Laurel, College Park, Silver Spring, and beyond rely on BVH for practical, compassionate care and familiar faces.",
+        "stats": [
+          {
+            "value": "1965",
+            "label": "Serving since"
+          },
+          {
+            "value": "Dogs & cats",
+            "label": "Patients cared for"
+          },
+          {
+            "value": "Same-day",
+            "label": "Sick visits during business hours"
           }
         ]
       },
@@ -590,7 +607,7 @@
         "items": [
           {
             "q": "My new puppy needs vaccines, how soon should we come in?",
-            "a": "As early as 6–8 weeks for the first puppy visit. We'll design a vaccine schedule based on your puppy's age and lifestyle and talk through spay/neuter timing, house-training, and nutrition.",
+            "a": "As early as 6\u20138 weeks for the first puppy visit. We'll design a vaccine schedule based on your puppy's age and lifestyle and talk through spay/neuter timing, house-training, and nutrition.",
             "intent": "dogs",
             "sub_intent": "new_puppy"
           },
@@ -602,7 +619,7 @@
           },
           {
             "q": "My senior dog is slowing down, can you help with arthritis or pain?",
-            "a": "Yes, we combine laser therapy, joint support, multimodal pain management, and PRP/regenerative medicine to keep older dogs comfortable and mobile. Senior consults include a tailored quality-of-life plan.",
+            "a": "Yes, we combine joint support, multimodal pain management, and PRP/regenerative medicine to keep older dogs comfortable and mobile. Senior consults include a tailored quality-of-life plan.",
             "intent": "dogs",
             "sub_intent": "senior"
           },
@@ -657,7 +674,7 @@
         "eyebrow": "Request a visit",
         "headline": "Let's get your pet on the schedule.",
         "subheadline": "Tell us a little about your pet and we'll follow up to confirm a time that works.",
-        "reassurance": "Same-week appointments typical. For urgent concerns, please call (000) 000-0000."
+        "reassurance": "Same-week appointments typical. For urgent concerns, please call (301) 937-3020."
       },
       "switches": [
         {
@@ -670,7 +687,7 @@
             "eyebrow": "Request a dog visit",
             "headline": "Let's get your dog on the schedule.",
             "subheadline": "A few quick details and we'll follow up to confirm.",
-            "reassurance": "Same-week appointments typical. For urgent concerns, please call (000) 000-0000."
+            "reassurance": "Same-week appointments typical. For urgent concerns, please call (301) 937-3020."
           }
         },
         {
@@ -683,7 +700,7 @@
             "eyebrow": "Request a cat visit",
             "headline": "Let's get your cat in for a gentle visit.",
             "subheadline": "Tell us a bit about your kitty and we'll take it from there.",
-            "reassurance": "Same-week appointments typical. For urgent concerns, please call (000) 000-0000."
+            "reassurance": "Same-week appointments typical. For urgent concerns, please call (301) 937-3020."
           }
         },
         {
@@ -709,7 +726,7 @@
             "eyebrow": "We're here to help",
             "headline": "Tell us what's going on.",
             "subheadline": "Describe symptoms and timing, we'll reach out quickly to guide you.",
-            "reassurance": "If this is truly urgent, please call (000) 000-0000 right now."
+            "reassurance": "If this is truly urgent, please call (301) 937-3020 right now."
           }
         }
       ]
@@ -720,12 +737,14 @@
       "page": "service",
       "description": "Inline CTA block shown on service/condition pages.",
       "default_content": {
-        "headline": "Ready when you are.",
-        "body": "Tell us about your pet and we'll take it from here.",
-        "primary_cta_label": "Request an appointment",
-        "primary_cta_href": "/appointment",
-        "image_url": "/images/animals/hero-svc-default.webp",
-        "imagePosition": "center 45%"
+        "headline": "New client? Save $75 on your pet\u2019s first wellness exam.",
+        "body": "Mention code NC75 when you schedule with Beltsville Veterinary Hospital.",
+        "primary_cta_label": "Book Appointment",
+        "primary_cta_href": "https://beltsvillevets.com/book-appointment/",
+        "image_url": "/images/beltsville/front-desk.webp",
+        "imagePosition": "center 45%",
+        "secondary_cta_label": "Call (301) 937-3020",
+        "secondary_cta_href": "tel:+13019373020"
       },
       "switches": [
         {

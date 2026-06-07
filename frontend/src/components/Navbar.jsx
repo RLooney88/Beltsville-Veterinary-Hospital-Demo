@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Cat, ChevronDown, Dog, Menu, Phone, Rabbit, X } from "lucide-react";
 import {

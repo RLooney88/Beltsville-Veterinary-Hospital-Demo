@@ -1,69 +1,107 @@
 {
   "practice": {
-    "name": "Veterinary Practice Name",
-    "shortName": "Vet Clinic",
-    "displayLines": ["Veterinary", "Clinic"],
-    "tagline": "Compassionate veterinary care for pets and families.",
-    "description": "A local veterinary practice providing thoughtful, modern care for pets and their people.",
-    "serviceArea": "Your City, ST"
+    "name": "Beltsville Veterinary Hospital",
+    "shortName": "Beltsville Vet",
+    "displayLines": [
+      "Beltsville",
+      "Veterinary Hospital"
+    ],
+    "tagline": "Modern veterinary care with a long-standing Beltsville history.",
+    "description": "Beltsville Veterinary Hospital provides compassionate wellness care, same-day sick visits, diagnostics, dental care, surgery, and boarding for dogs and cats in Beltsville, MD.",
+    "serviceArea": "Beltsville, College Park, Silver Spring, Laurel, and Prince George\u2019s County, MD"
   },
   "brand": {
-    "logo": "/brand/logo-placeholder.svg",
-    "logoAlt": "Veterinary practice logo",
+    "logo": "/brand/bvh-logo.svg",
+    "logoAlt": "Beltsville Veterinary Hospital logo",
     "colors": {
-      "light": "#FDFBF7",
-      "dark": "#1A2B4C",
-      "accent": "#C8382E",
-      "accentLight": "#E8F0EB"
+      "light": "#F7F3EA",
+      "dark": "#14345B",
+      "accent": "#E15D3B",
+      "accentLight": "#E7F0F0"
     }
   },
   "contact": {
-    "phone": "(000) 000-0000",
-    "phoneHref": "tel:+10000000000",
-    "email": "hello@example.com",
+    "phone": "(301) 937-3020",
+    "phoneHref": "tel:+13019373020",
+    "text": "(301) 477-8127",
+    "textHref": "sms:+13014778127",
+    "fax": "(757) 728-2597",
+    "email": "info@beltsvillevets.com",
     "address": {
-      "street": "123 Main Street",
-      "line2": "Suite 100",
-      "city": "Your City",
-      "state": "ST",
-      "zip": "00000",
+      "street": "4246 Powder Mill Rd",
+      "line2": "",
+      "city": "Beltsville",
+      "state": "MD",
+      "zip": "20705",
       "country": "US"
     }
   },
   "hours": [
-    ["Monday", "8:00 AM – 5:00 PM"],
-    ["Tuesday", "8:00 AM – 5:00 PM"],
-    ["Wednesday", "8:00 AM – 5:00 PM"],
-    ["Thursday", "8:00 AM – 5:00 PM"],
-    ["Friday", "8:00 AM – 5:00 PM"],
-    ["Saturday", "Closed"],
-    ["Sunday", "Closed"]
+    [
+      "Monday",
+      "8:00 AM \u2013 6:00 PM"
+    ],
+    [
+      "Tuesday",
+      "8:00 AM \u2013 6:00 PM"
+    ],
+    [
+      "Wednesday",
+      "8:00 AM \u2013 6:00 PM"
+    ],
+    [
+      "Thursday",
+      "8:00 AM \u2013 6:00 PM"
+    ],
+    [
+      "Friday",
+      "8:00 AM \u2013 6:00 PM"
+    ],
+    [
+      "Saturday",
+      "8:00 AM \u2013 2:00 PM"
+    ],
+    [
+      "Sunday",
+      "Closed"
+    ]
   ],
   "links": {
-    "website": "",
-    "appointment": "",
-    "store": "",
-    "pharmacy": "",
-    "onlineForms": "",
-    "facebook": "",
-    "instagram": "",
-    "linkedin": "",
-    "googleBusinessProfile": ""
+    "website": "https://beltsvillevets.com/",
+    "appointment": "https://beltsvillevets.com/book-appointment/",
+    "store": "https://beltsvillevethospital.securevetsource.com/site/view/84253_Home.pml?retUrl=https://beltsvillevets.com/&cms",
+    "pharmacy": "https://beltsvillevethospital.securevetsource.com/site/view/84253_Home.pml?retUrl=https://beltsvillevets.com/&cms",
+    "onlineForms": "https://beltsvillevets.com/resources/forms/",
+    "refill": "https://practices.allydvm.com/product-request?practice=beltsville",
+    "facebook": "https://www.facebook.com/beltsvillevet/",
+    "googleBusinessProfile": "https://www.google.com/maps/place/Beltsville+Veterinary+Hospital/@39.0503563,-76.920391,672m/"
   },
   "team": [
     {
-      "name": "Team Member Name",
-      "role": "Veterinarian",
-      "bio": "Short professional bio placeholder.",
-      "image": ""
+      "name": "Kathryn Fink",
+      "role": "DVM, Medical Director and Part Owner",
+      "bio": "Dr. Fink joined Beltsville Veterinary Hospital in 2004 after graduating from Michigan State University. She enjoys preventive medicine, long-term client relationships, walking local trails, reading, cooking, and baking.",
+      "image": "/images/beltsville/dr-kathryn-fink.webp"
+    },
+    {
+      "name": "Shawnne Spencer",
+      "role": "DVM",
+      "bio": "Dr. Spencer is a Maryland native and Virginia-Maryland Regional College of Veterinary Medicine graduate. He joined BVH in 2020 after practicing in Silver Spring and serves on the SPCA Humane Society of Prince George\u2019s County medical advisory board.",
+      "image": "/images/beltsville/dr-shawnne-spencer.jpg"
+    },
+    {
+      "name": "Marjorie Farris",
+      "role": "DVM",
+      "bio": "Dr. Margie Farris joined the Beltsville team part-time in 2020. She focuses on preventive medicine and helping pets stay happy and healthy for as long as possible.",
+      "image": "/brand/bvh-logo-icon.webp"
     }
   ],
   "features": {
     "clientPortal": true,
     "onlineBooking": true,
-    "storeLink": false,
-    "pharmacyLink": false,
-    "onlineFormsLink": false,
+    "storeLink": true,
+    "pharmacyLink": true,
+    "onlineFormsLink": true,
     "teamSection": true
   }
 }

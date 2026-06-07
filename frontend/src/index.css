@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -24,18 +24,18 @@ code {
 @layer base {
   :root {
     /* Site template brand palette. Values are RGB triplets so Tailwind opacity modifiers work. */
-    --sand-50: 253 251 247;
-    --sand-100: 247 242 232;
+    --sand-50: 247 243 234;
+    --sand-100: 239 232 218;
     --sand-200: 239 230 211;
     --sand-300: 229 225 216;
-    --clinic-navy: 26 43 76;
-    --clinic-navy-hover: 38 59 102;
-    --clinic-forest: 44 85 69;
-    --clinic-forest-hover: 58 110 89;
-    --clinic-sage: 232 240 235;
+    --clinic-navy: 20 52 91;
+    --clinic-navy-hover: 25 69 120;
+    --clinic-forest: 36 116 128;
+    --clinic-forest-hover: 28 91 101;
+    --clinic-sage: 231 240 240;
     --clinic-sage-deep: 212 226 216;
-    --clinic-red: 200 56 46;
-    --clinic-red-hover: 166 44 35;
+    --clinic-red: 225 93 59;
+    --clinic-red-hover: 190 70 43;
     --clinic-red-soft: 249 230 226;
     --clinic-peach: 251 238 222;
     --clinic-peach-deep: 245 223 196;

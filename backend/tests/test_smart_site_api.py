@@ -12,7 +12,7 @@ if not BASE_URL:
 
 # Test credentials from test_credentials.md
 ADMIN_EMAIL = "admin@example-vet-site.com"
-ADMIN_PASSWORD = "Your CityVet2026!"
+ADMIN_PASSWORD = "BeltsvilleVet2026!"
 
 
 @pytest.fixture(scope="module")

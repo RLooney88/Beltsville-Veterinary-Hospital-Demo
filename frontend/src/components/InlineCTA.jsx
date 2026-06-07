@@ -54,11 +54,11 @@ export default function InlineCTA({ forceIntent = null, forceSubIntent = null } 
                 {primary_cta_label || "Request an appointment"}
               </Link>
               <a
-                href="tel:+10000000000"
+                href="tel:+13019373020"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-md text-sand-50 rounded-full px-7 py-4 font-semibold transition-colors"
                 data-testid="inline-cta-phone"
               >
-                <Phone className="h-4 w-4" /> Call (000) 000-0000
+                <Phone className="h-4 w-4" /> Call (301) 937-3020
               </a>
             </div>
           </div>
