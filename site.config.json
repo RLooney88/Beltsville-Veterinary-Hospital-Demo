@@ -1,0 +1,69 @@
+{
+  "practice": {
+    "name": "Veterinary Practice Name",
+    "shortName": "Vet Clinic",
+    "displayLines": ["Veterinary", "Clinic"],
+    "tagline": "Compassionate veterinary care for pets and families.",
+    "description": "A local veterinary practice providing thoughtful, modern care for pets and their people.",
+    "serviceArea": "Your City, ST"
+  },
+  "brand": {
+    "logo": "/brand/logo-placeholder.svg",
+    "logoAlt": "Veterinary practice logo",
+    "colors": {
+      "light": "#FDFBF7",
+      "dark": "#1A2B4C",
+      "accent": "#C8382E",
+      "accentLight": "#E8F0EB"
+    }
+  },
+  "contact": {
+    "phone": "(000) 000-0000",
+    "phoneHref": "tel:+10000000000",
+    "email": "hello@example.com",
+    "address": {
+      "street": "123 Main Street",
+      "line2": "Suite 100",
+      "city": "Your City",
+      "state": "ST",
+      "zip": "00000",
+      "country": "US"
+    }
+  },
+  "hours": [
+    ["Monday", "8:00 AM – 5:00 PM"],
+    ["Tuesday", "8:00 AM – 5:00 PM"],
+    ["Wednesday", "8:00 AM – 5:00 PM"],
+    ["Thursday", "8:00 AM – 5:00 PM"],
+    ["Friday", "8:00 AM – 5:00 PM"],
+    ["Saturday", "Closed"],
+    ["Sunday", "Closed"]
+  ],
+  "links": {
+    "website": "",
+    "appointment": "",
+    "store": "",
+    "pharmacy": "",
+    "onlineForms": "",
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "googleBusinessProfile": ""
+  },
+  "team": [
+    {
+      "name": "Team Member Name",
+      "role": "Veterinarian",
+      "bio": "Short professional bio placeholder.",
+      "image": ""
+    }
+  ],
+  "features": {
+    "clientPortal": true,
+    "onlineBooking": true,
+    "storeLink": false,
+    "pharmacyLink": false,
+    "onlineFormsLink": false,
+    "teamSection": true
+  }
+}

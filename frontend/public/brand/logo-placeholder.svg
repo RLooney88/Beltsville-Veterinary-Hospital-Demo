@@ -1,0 +1,12 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="320" height="120" viewBox="0 0 320 120" role="img" aria-labelledby="title desc">
+  <title id="title">Veterinary practice logo placeholder</title>
+  <desc id="desc">A simple placeholder logo with a paw icon and veterinary clinic text.</desc>
+  <rect width="320" height="120" rx="24" fill="#FDFBF7"/>
+  <circle cx="58" cy="60" r="34" fill="#1A2B4C"/>
+  <circle cx="45" cy="49" r="6" fill="#FDFBF7"/>
+  <circle cx="58" cy="43" r="6" fill="#FDFBF7"/>
+  <circle cx="71" cy="49" r="6" fill="#FDFBF7"/>
+  <path d="M43 69c5-11 25-11 30 0 3 7-2 13-9 11-4-1-8-1-12 0-7 2-12-4-9-11Z" fill="#FDFBF7"/>
+  <text x="106" y="53" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1A2B4C">Veterinary</text>
+  <text x="106" y="80" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#C8382E">Clinic</text>
+</svg>

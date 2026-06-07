@@ -1,0 +1,24 @@
+{
+  "summary": "Verified Clear-intent race fix on Veterinary Site Template. Reproduced exact chat-driven scenario: typed 'my cat is sick and not eating' in chat widget, sent, waited 8s for assistant reply, navigated /services -> /, confirmed parent_intent='cats' (intent_scores cats=13.5) with token T1. Clicked footer-clear-intent and polled window.smartSite.getSession().parent_intent every 500ms for 6s -- it stayed null at every poll. Post-clear token was brand new (T1 changed to T2). Navigated /services -> / again, parent_intent remained null and hero rendered the neutral cat+dog+rabbit cuddling photo. Reopened chat widget: conversation reset (only welcome message present). Sanity test: setIntent('dogs','wellness') x2 -> parent_intent='dogs' (scores 17.5), persisted across reload, then clear -> null. All four scenarios from the review request PASS.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "SmartSiteContext.jsx: generation-guard pattern (genRef bumped on clearIntent, captured at start of init/track, compared on resolve) is correct and idiomatic for cancelling stale React state writes from in-flight fetches. Verified empirically that a chat_intent applied server-side to the OLD token does not leak back after clear.",
+    "Footer.jsx: onClear redundantly wipes avw_surface_* keys before calling clearIntent which already wipes avw_surface_v3_* keys -- harmless but duplicated logic; consider consolidating in clearIntent only.",
+    "SmartSiteContext.jsx track() returns early when genRef changes but does not abort the underlying axios request -- acceptable since the response is discarded, but for cleaner resource use an AbortController could be used."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100%"},
+  "test_credentials": "None required (public flow).",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Primary regression scenario: chat-driven cat intent then footer Clear. Use window.smartSite.getSession() / getSessionToken() to read state reliably. Poll for ~6s after Clear -- the previous bug surfaced as a brief flip back to 'cats' within the first 1-3 seconds while the chat /api/chat response landed. Verified the new genRef guard prevents this. Token rotation works (old token replaced with brand-new one). Chat conversation resets via clearNonce. All flows now stable.",
+  "rca of the issue": "Original bug: clearIntent() invalidated the session token but a /api/chat call started before clear was still in flight; when it resolved it called setSession with the OLD-token-derived data which still had cats intent (server-side strength 24). React state was overwritten back to cats milliseconds after the user's neutral state was set. Fix verified working: genRef.current incremented on clearIntent; init() and track() capture genRef at start and bail before setSession if genRef has changed. Combined with new-token mint + cache wipe + chat conversation reset, the cleared state remains sticky."
+}

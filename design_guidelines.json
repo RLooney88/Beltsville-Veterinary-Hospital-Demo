@@ -1,0 +1,153 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 1: Organic & Earthy",
+  "typography": {
+    "heading_font": "Cabinet Grotesk",
+    "body_font": "Manrope",
+    "scales": {
+      "h1": "text-5xl sm:text-6xl tracking-tight leading-none font-bold",
+      "h2": "text-3xl sm:text-4xl tracking-tight leading-tight font-bold",
+      "h3": "text-2xl sm:text-3xl leading-snug font-semibold",
+      "h4": "text-xl sm:text-2xl leading-snug font-medium",
+      "body_lg": "text-lg leading-relaxed text-[#5A6B82]",
+      "body": "text-base leading-relaxed text-[#5A6B82]",
+      "small": "text-sm uppercase tracking-widest font-semibold text-[#1A2B4C]"
+    }
+  },
+  "colors": {
+    "background": "#FDFBF7",
+    "surface": "#FFFFFF",
+    "surface_alt": "#E8F0EB",
+    "primary": "#1A2B4C",
+    "primary_hover": "#263B66",
+    "secondary": "#2C5545",
+    "secondary_hover": "#3A6E59",
+    "accent": "#D96C4A",
+    "text_main": "#1A2B4C",
+    "text_muted": "#5A6B82",
+    "border": "#E5E1D8"
+  },
+  "spacing": {
+    "container": "max-w-7xl mx-auto px-6 lg:px-12",
+    "section": "py-24 sm:py-32",
+    "element_gap": "gap-8 lg:gap-12"
+  },
+  "components": {
+    "cards": {
+      "marketing": "bg-white rounded-[2rem] p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#E5E1D8]/60",
+      "admin": "bg-white rounded-xl p-6 shadow-sm border border-[#E5E1D8]",
+      "interaction": "hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300"
+    },
+    "buttons": {
+      "primary": "bg-[#1A2B4C] text-white rounded-full px-8 py-4 font-semibold hover:bg-[#263B66] transition-colors shadow-md",
+      "secondary": "bg-[#E8F0EB] text-[#2C5545] rounded-full px-8 py-4 font-semibold hover:bg-[#D4E2D8] transition-colors",
+      "accent": "bg-[#D96C4A] text-white rounded-full px-8 py-4 font-semibold hover:bg-[#C25D3E] transition-colors shadow-md"
+    },
+    "intent_chips": {
+      "style": "inline-flex items-center gap-2 bg-[#FDFBF7]/80 backdrop-blur-md border border-[#2C5545]/20 text-[#1A2B4C] rounded-full px-5 py-2.5 text-sm font-semibold shadow-sm"
+    }
+  },
+  "layouts": {
+    "home_grid": "grid grid-cols-1 md:grid-cols-12 gap-8",
+    "bento_span_main": "col-span-full md:col-span-8",
+    "bento_span_side": "col-span-full md:col-span-4",
+    "admin_layout": "flex h-screen bg-[#FDFBF7] overflow-hidden"
+  },
+  "motion": {
+    "page_transition": "animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out",
+    "hover_lift": "transition-transform duration-300 hover:-translate-y-2",
+    "chip_swap": "transition-all duration-500 ease-in-out"
+  },
+  "pages": {
+    "Home": {
+      "purpose": "Smart landing page reacting to user intent",
+      "sections": [
+        "Dynamic Hero: Changes background image and copy based on selected Intent (Dog, Cat, Critter)",
+        "Intent Selector: 3 large clickable pet cards that set the global intent context",
+        "Featured Care Grid: Bento layout showing top services, dynamically reordered based on intent",
+        "Trust/Testimonials: Photos of actual clinic, the veterinarian, and patient stories",
+        "Team: Carousel or Grid featuring the veterinarian and care team",
+        "Contact & Footer: Embedded maps, hours, address, phone"
+      ]
+    },
+    "Conditions_Services": {
+      "purpose": "Detailed explanations of care offerings",
+      "sections": [
+        "List/Grid of Conditions: Dental, Vaccinations, PRP, Laser, Regenerative Med, Surgery",
+        "Inline CTA: 'Request [Service] Appointment' dynamically inserted",
+        "FAQ Surface: Accordions covering common pet owner questions"
+      ]
+    },
+    "Appointment": {
+      "purpose": "Lead capture form",
+      "sections": [
+        "Dynamic Pre-form Copy: Echoes the intent back ('Ready to schedule a visit for your dog?')",
+        "Form Fields: Pet name, Species, Owner name, Contact, Reason for visit",
+        "Submit Button: Routes data to Admin Leads"
+      ]
+    },
+    "Admin_Dashboard": {
+      "purpose": "Manage dynamic content and track leads",
+      "style": "Crisp SaaS Control Panel - Clean, denser layout, functional",
+      "sections": [
+        "Auth: Simple email/password login",
+        "Overview Stats: Lead count, Top intents (Dogs vs Cats)",
+        "Leads Table: Shows submissions, and 'Signal Timeline' (user intent trail)",
+        "Surfaces CRUD: Manage dynamic sections of the site",
+        "Switches CRUD: Rules that trigger content swapping"
+      ]
+    }
+  },
+  "media": {
+    "logo": [],
+    "hero_backgrounds": [
+      {
+        "url": "/images/animals/hero-home-default.webp",
+        "category": "hero_default",
+        "description": "Default generated veterinary hero"
+      },
+      {
+        "url": "/images/animals/hero-dogs-default.webp",
+        "category": "hero_dog",
+        "description": "Generated dog hero"
+      },
+      {
+        "url": "/images/animals/cat-hero-switch.webp",
+        "category": "hero_cat",
+        "description": "Generated cat hero"
+      },
+      {
+        "url": "/images/animals/hero-critters-page.webp",
+        "category": "hero_critter",
+        "description": "Generated small mammal hero"
+      }
+    ],
+    "team": [],
+    "clinic_and_patients": []
+  },
+  "content_requirements": {
+    "hours": "Mon 8-4, Tue closed, Wed 12-7, Thu 8-4, Fri 8-3, Sat 9-1, Sun closed",
+    "address": "123 Main Street Suite 100 Your City ST 00000",
+    "phone": "(000) 000-0000",
+    "team_members": [
+      "Dr. Veterinarian Name",
+      "Team Member Name",
+      "Team Member 1",
+      "Team Member 2",
+      "Team Member 3"
+    ],
+    "services": [
+      "Dental Care",
+      "Vaccinations",
+      "PRP",
+      "Laser Therapy",
+      "Regenerative Medicine",
+      "Microchipping",
+      "Parasite Prevention",
+      "Surgery",
+      "Senior Care",
+      "Emergency Care"
+    ]
+  },
+  "instructions_to_main_agent": "Build a hybrid_fullstack app using FastAPI, React, Tailwind, and Shadcn (JS, not TSX). Apply the 'Archetype 1: Organic & Earthy' design theme with generously rounded corners (rounded-[2rem]) and high-padding (p-8/p-12) to match the warm, pet-friendly Dribbble aesthetic. Typography uses Cabinet Grotesk for bold headings and Manrope for body text. Crucially, implement the 'Smart Site' intent architecture: Use React state or Context to track 'currentIntent' (Dogs, Cats, Other Critters). The Hero Section and Featured Services grid must reactively re-render content based on this state. Create a floating or fixed 'Intent Chip' indicating the current context (e.g., 'Showing for: Dogs'). Leave an empty placeholder div/component for the external chat widget. The admin dashboard route (/admin) should diverge from the soft marketing look into a denser, functional SaaS UI to manage dynamic 'Surfaces' and 'Switches' via basic CRUD, plus viewing leads. DO NOT use raw placeholders for images; map exactly to the provided `media` object URLs. All interactive elements MUST include a `data-testid` attribute (e.g., `data-testid=\"intent-selector-dog\"`)."
+}
