@@ -16,7 +16,7 @@ from sqlalchemy import select
 
 from auth import hash_password
 from database import AsyncSessionLocal, Base, engine
-from models import Surface, Switch, User
+from models import AppointmentType, ClinicHours, StaffConfig, Surface, Switch, User
 
 logger = logging.getLogger(__name__)
 
@@ -96,6 +96,60 @@ async def seed() -> None:
             await db.flush()
             surface_by_slug[spec["slug"]] = surface
             logger.info("Seeded surface %s", spec["slug"])
+
+        await db.flush()
+
+        # --- Booking config: Beltsville-specific public availability ---
+        hours_spec = {
+            0: (True, 8 * 60, 18 * 60),
+            1: (True, 8 * 60, 18 * 60),
+            2: (True, 8 * 60, 18 * 60),
+            3: (True, 8 * 60, 18 * 60),
+            4: (True, 8 * 60, 18 * 60),
+            5: (True, 8 * 60, 14 * 60),
+            6: (False, 8 * 60, 14 * 60),
+        }
+        for day, (is_open, open_minutes, close_minutes) in hours_spec.items():
+            res = await db.execute(select(ClinicHours).where(ClinicHours.day_of_week == day))
+            row = res.scalar_one_or_none()
+            if not row:
+                row = ClinicHours(day_of_week=day)
+                db.add(row)
+            row.is_open = is_open
+            row.open_minutes = open_minutes
+            row.close_minutes = close_minutes
+
+        res = await db.execute(select(StaffConfig).limit(1))
+        staff = res.scalar_one_or_none()
+        if not staff:
+            staff = StaffConfig()
+            db.add(staff)
+        staff.num_doctors = 2
+        staff.num_techs = 3
+        staff.slot_granularity_mins = 30
+        staff.booking_window_days = 14
+        staff.min_lead_time_hours = 4
+
+        appointment_specs = [
+            ("Wellness Exam / New Client Visit", "Routine wellness care, vaccines, preventive screening, and the new-client first wellness exam offer.", 40, 30, 40, "#14345B", 10),
+            ("Same-Day Sick Visit Request", "For vomiting, diarrhea, limping, not eating, coughing, urinary issues, or a pet who is not acting like themselves. Call ahead for urgent needs.", 30, 30, 30, "#E15D3B", 20),
+            ("Dental Care Consultation", "Dental exam, cleaning planning, oral pain concerns, extractions, and full-mouth X-ray discussions.", 30, 30, 30, "#247480", 30),
+            ("Surgery Consultation", "Spay/neuter, soft tissue surgery, mass removals, laceration repair, and procedure planning.", 30, 30, 30, "#B9462B", 40),
+            ("Boarding Inquiry", "Day, overnight, or medical boarding for current dog and cat clients.", 20, 10, 20, "#6C8D8F", 50),
+        ]
+        for name, description, duration, doctor_mins, tech_mins, color, sort_order in appointment_specs:
+            res = await db.execute(select(AppointmentType).where(AppointmentType.name == name))
+            appt_type = res.scalar_one_or_none()
+            if not appt_type:
+                appt_type = AppointmentType(name=name)
+                db.add(appt_type)
+            appt_type.description = description
+            appt_type.duration_mins = duration
+            appt_type.doctor_mins = doctor_mins
+            appt_type.tech_mins = tech_mins
+            appt_type.color = color
+            appt_type.sort_order = sort_order
+            appt_type.active = True
 
         await db.flush()
 
