@@ -13,10 +13,10 @@ const FALLBACK_CONFIG = {
     logo: "/brand/bvh-logo.svg",
     logoAlt: "Beltsville Veterinary Hospital logo",
     colors: {
-      light: "#F7F3EA",
-      dark: "#14345B",
-      accent: "#E15D3B",
-      accentLight: "#E7F0F0",
+      light: "#f6f9fa",
+      dark: "#30728e",
+      accent: "#3b8da4",
+      accentLight: "#ced0d0",
     },
   },
   contact: {
