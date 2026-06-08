@@ -17,6 +17,9 @@ export default function ServiceDetail() {
   const service = ALL_SERVICES[slug];
 
   if (!service) return <Navigate to="/services" replace />;
+  if (service.animalKey === "rabbits" || service.animalKey === "guinea_pigs") {
+    return <Navigate to="/critters" replace />;
+  }
 
   const forceIntent = ANIMAL_TO_INTENT[service.animalKey] || null;
 

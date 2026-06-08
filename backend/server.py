@@ -262,7 +262,7 @@ async def get_surface_content(
 
 
 # ---------- Leads (public submit) ----------
-INTENT_LABELS = {"dogs": "Dogs", "cats": "Cats", "critters": "Small & Exotic Pets"}
+INTENT_LABELS = {"dogs": "Dogs", "cats": "Cats", "critters": "Other Pet? Call First"}
 SUB_INTENT_LABELS = {
     "new_puppy": "New puppy care",
     "new_kitten": "New kitten care",

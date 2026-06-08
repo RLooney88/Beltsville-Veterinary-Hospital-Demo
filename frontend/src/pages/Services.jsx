@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { PawPrint, AlertTriangle, ChevronRight, Dog, Cat, Rabbit } from "lucide-react";
+import { AlertTriangle, ChevronRight, Dog, Cat } from "lucide-react";
 import { useSmartSite } from "../context/SmartSiteContext";
 import { useSurface } from "../hooks/useSurface";
 import InlineCTA from "../components/InlineCTA";
@@ -9,8 +9,6 @@ import { SERVICES_BY_ANIMAL } from "../data/services";
 const TABS = [
   { key: "dogs", label: "Dogs", Icon: Dog },
   { key: "cats", label: "Cats", Icon: Cat },
-  { key: "rabbits", label: "Rabbits", Icon: Rabbit },
-  { key: "guinea_pigs", label: "Guinea Pigs", Icon: PawPrint },
 ];
 
 function ServiceCard({ service }) {
@@ -102,7 +100,6 @@ export default function Services() {
   const tabParam = searchParams.get("tab");
   const intentToTab = parentIntent === "dogs" ? "dogs"
     : parentIntent === "cats" ? "cats"
-    : parentIntent === "critters" ? "rabbits"
     : null;
   const initialTab = tabParam && SERVICES_BY_ANIMAL[tabParam] ? tabParam : intentToTab;
 

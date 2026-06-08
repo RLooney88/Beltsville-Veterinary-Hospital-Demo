@@ -6,7 +6,7 @@ import { useSmartSite } from "../context/SmartSiteContext";
 const BUTTONS = [
   { intent: "dogs", label: "Dogs", href: "/dogs", Icon: Dog },
   { intent: "cats", label: "Cats", href: "/cats", Icon: Cat },
-  { intent: "critters", label: "Small & Exotic Pets", href: "/critters", Icon: Rabbit },
+  { intent: "critters", label: "Other Pet? Call First", href: "/critters", Icon: Rabbit },
 ];
 
 /**

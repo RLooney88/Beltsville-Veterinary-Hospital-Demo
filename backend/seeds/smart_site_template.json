@@ -120,10 +120,10 @@
           },
           "priority": 100,
           "content": {
-            "eyebrow": "Other Critters Welcome",
-            "headline": "Gentle, species-appropriate care beyond dogs & cats.",
-            "subheadline": "Let's talk about your pet and see if we're the right fit for their needs.",
-            "primary_cta_label": "Contact the Clinic",
+            "eyebrow": "Dogs & Cats Are Our Primary Focus",
+            "headline": "Have another kind of pet? Please call first.",
+            "subheadline": "Beltsville Veterinary Hospital primarily treats dogs and cats. If you have a rabbit, small mammal, bird, reptile, or other pet, call so we can confirm fit or point you to the right specialist.",
+            "primary_cta_label": "Call Before Booking",
             "primary_cta_href": "/appointment",
             "secondary_cta_label": "Call (301) 937-3020",
             "secondary_cta_href": "tel:+13019373020",
@@ -174,8 +174,8 @@
           },
           {
             "intent": "critters",
-            "title": "Other Critters",
-            "description": "Rabbits, small mammals & more, let's see if we're a fit.",
+            "title": "Other Pet? Call First",
+            "description": "Dogs and cats are our primary focus. Call first for any other species.",
             "image": "/images/animals/hero-critters-page.webp"
           }
         ]
@@ -624,8 +624,8 @@
             "sub_intent": "senior"
           },
           {
-            "q": "Do you see exotic pets, rabbits, reptiles, birds, or small mammals?",
-            "a": "We see select non-dog, non-cat pets. Call us first and we'll be honest about whether we're the right clinic for your species, or refer you to a specialist we trust.",
+            "q": "Do you see rabbits, reptiles, birds, or small mammals?",
+            "a": "Beltsville Veterinary Hospital primarily treats dogs and cats. Please call before scheduling for any other species so the team can confirm whether your pet's need is a fit or recommend an appropriate specialist.",
             "intent": "critters",
             "sub_intent": "husbandry"
           },

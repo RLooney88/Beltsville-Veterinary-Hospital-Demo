@@ -269,7 +269,7 @@ export default function AdminLeads() {
 
 // --- Helpers ---------------------------------------------------------------
 
-const INTENT_LABELS = { dogs: "Dogs", cats: "Cats", critters: "Small & Exotic Pets" };
+const INTENT_LABELS = { dogs: "Dogs", cats: "Cats", critters: "Other Pet? Call First" };
 const SUB_INTENT_LABELS = {
   new_puppy: "New puppy",
   new_kitten: "New kitten",
