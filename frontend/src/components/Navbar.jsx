@@ -65,20 +65,19 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 shrink-0" data-testid="nav-logo-link">
+          <Link
+            to="/"
+            className={`flex h-14 w-[176px] sm:w-[204px] shrink-0 items-center justify-center rounded-2xl bg-white px-4 py-2 shadow-sm ring-1 transition-all ${
+              transparent ? "bg-white/95 ring-white/30" : "ring-clinic-sage-deep/70"
+            }`}
+            data-testid="nav-logo-link"
+            aria-label={practice.name}
+          >
             <img
               src={brand.logo}
               alt={brand.logoAlt || practice.name}
-              className={`h-12 w-auto rounded-xl transition-all ${transparent ? "bg-white/90 p-1" : ""}`}
+              className="block h-full w-full object-contain object-center"
             />
-            <div className="hidden sm:block leading-tight">
-              <div className={`font-display font-extrabold text-[17px] transition-colors ${transparent ? "text-sand-50" : "text-clinic-navy"}`}>
-                {practice.displayLines?.[0] || practice.name}
-              </div>
-              <div className={`text-[12px] uppercase tracking-[0.18em] font-semibold transition-colors ${transparent ? "text-clinic-amber" : "text-clinic-forest"}`}>
-                {practice.displayLines?.[1] || practice.shortName}
-              </div>
-            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
