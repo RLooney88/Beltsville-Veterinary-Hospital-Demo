@@ -7,6 +7,7 @@ Switches, Leads and basic analytics.
 from __future__ import annotations
 
 import logging
+import mimetypes
 import os
 import re
 import json
@@ -65,6 +66,7 @@ from nova_site_editor import nova_site_editor as nova_site_editor_router
 from pathlib import Path
 
 load_dotenv(Path(__file__).parent / ".env")
+mimetypes.add_type("image/webp", ".webp")
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger(__name__)
