@@ -61,7 +61,7 @@ const ANIMALS = {
     image: "/images/animals/hero-dogs-page.webp",
     quote: {
       body: "Dogs don't hide discomfort as well as cats do, but they'll push through because they want to please you. Our job is to notice the small things, a little stiffness, a subtle cough, a change in appetite, before they become big problems.",
-      author: "Dr. Veterinarian Name, DVM",
+      author: "Beltsville Veterinary Hospital team",
     },
     life_stages: [
       { name: "Puppy", age: "6 wks – 1 yr", focus: "Vaccine series, deworming, nutrition counseling, spay/neuter planning, training guidance.", icon: "paw", image: "/images/animals/dog-puppy.webp" },
@@ -105,7 +105,7 @@ const ANIMALS = {
     image: "/images/animals/cat-hero-home.webp",
     quote: {
       body: "Cats don't complain, they hide. The best thing you can do is bring them in for wellness before they're sick, because by the time a cat looks sick, the disease has usually been there a while.",
-      author: "Dr. Veterinarian Name, DVM",
+      author: "Beltsville Veterinary Hospital team",
     },
     life_stages: [
       { name: "Kitten", age: "8 wks – 1 yr", focus: "Vaccine series, deworming, spay/neuter, nutrition, socialization, microchipping.", icon: "paw", image: "/images/animals/cat-kitten.webp" },

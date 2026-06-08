@@ -11,16 +11,16 @@ export default function About() {
         A calm, thorough, family-owned clinic in Beltsville.
       </h1>
       <p className="mt-6 text-lg text-clinic-mist max-w-2xl leading-relaxed">
-        Dr. Veterinarian Name opened Beltsville Veterinary Hospital to practice medicine the way she
-        always believed it should be practiced: unhurried, evidence-based, and deeply connected to
-        the families she serves.
+        Beltsville Veterinary Hospital has served local pets and families since 1965 with practical,
+        compassionate medicine, long-tenured relationships, modern diagnostics, dental care, surgery,
+        and familiar neighborhood attention.
       </p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-3">
         {[
-          { n: "Years", v: "15+", tint: "bg-clinic-red text-sand-50", numColor: "text-white", labelColor: "text-clinic-amber" },
-          { n: "Happy families", v: "5,000+", tint: "bg-clinic-peach border border-clinic-peachDeep/60", numColor: "text-clinic-navy", labelColor: "text-clinic-red" },
-          { n: "Modalities onsite", v: "10", tint: "bg-clinic-sage border border-clinic-forest/15", numColor: "text-clinic-navy", labelColor: "text-clinic-forest" },
+          { n: "Serving since", v: "1965", tint: "bg-clinic-red text-sand-50", numColor: "text-white", labelColor: "text-clinic-amber" },
+          { n: "Primary care", v: "Dogs & Cats", tint: "bg-clinic-peach border border-clinic-peachDeep/60", numColor: "text-clinic-navy", labelColor: "text-clinic-red" },
+          { n: "Beltsville location", v: "Local", tint: "bg-clinic-sage border border-clinic-forest/15", numColor: "text-clinic-navy", labelColor: "text-clinic-forest" },
         ].map((s) => (
           <div key={s.n} className={`rounded-[1.5rem] p-7 ${s.tint}`}>
             <div className={`font-display text-4xl font-extrabold ${s.numColor}`}>{s.v}</div>

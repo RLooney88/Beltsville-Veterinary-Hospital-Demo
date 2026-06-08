@@ -65,10 +65,10 @@ async def seed_portal():
         db.add(PetHealthRecord(pet_id=rosie.id, record_type="dental", name="Dental Cleaning + Full Mouth X-rays", date_performed="2024-11-05", notes="Grade 1 tartar. No extractions needed. Good dental health."))
 
         # Appointments
-        db.add(PetAppointment(pet_id=rosie.id, date="2025-06-10", reason="Annual Wellness Exam + Vaccines", provider="Dr. Veterinarian Name", status="completed", notes="All vaccines updated. Weight stable. Heart and lungs clear."))
-        db.add(PetAppointment(pet_id=rosie.id, date="2025-09-18", reason="Bordetella Booster", provider="Dr. Veterinarian Name", status="completed", notes="Quick visit. No concerns."))
-        db.add(PetAppointment(pet_id=rosie.id, date="2024-11-05", reason="Dental Cleaning", provider="Dr. Veterinarian Name", status="completed", notes="Dental cleaning under anesthesia. Recovered well."))
-        db.add(PetAppointment(pet_id=rosie.id, date="2026-06-10", reason="Annual Wellness Exam", provider="Dr. Veterinarian Name", status="upcoming"))
+        db.add(PetAppointment(pet_id=rosie.id, date="2025-06-10", reason="Annual Wellness Exam + Vaccines", provider="Dr. Kathryn Fink", status="completed", notes="All vaccines updated. Weight stable. Heart and lungs clear."))
+        db.add(PetAppointment(pet_id=rosie.id, date="2025-09-18", reason="Bordetella Booster", provider="Dr. Kathryn Fink", status="completed", notes="Quick visit. No concerns."))
+        db.add(PetAppointment(pet_id=rosie.id, date="2024-11-05", reason="Dental Cleaning", provider="Dr. Kathryn Fink", status="completed", notes="Dental cleaning under anesthesia. Recovered well."))
+        db.add(PetAppointment(pet_id=rosie.id, date="2026-06-10", reason="Annual Wellness Exam", provider="Dr. Kathryn Fink", status="upcoming"))
 
         await db.commit()
         logger.info("Portal seed: created Demo Client + Rosie the Chizon with full health records.")
