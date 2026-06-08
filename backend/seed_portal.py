@@ -49,8 +49,12 @@ async def seed_portal():
                 link = await db.execute(select(ClientPetLink).where(ClientPetLink.client_id == c.id, ClientPetLink.pet_id == rosie_existing.id))
                 if not link.scalar_one_or_none():
                     db.add(ClientPetLink(client_id=c.id, pet_id=rosie_existing.id, role="owner"))
+            appts = await db.execute(select(PetAppointment).where(PetAppointment.pet_id == rosie_existing.id))
+            for appt in appts.scalars().all():
+                if appt.provider == "Dr. Veterinarian Name":
+                    appt.provider = "Dr. Kathryn Fink"
             await db.commit()
-            logger.info("Portal seed: refreshed demo clients and Rosie links.")
+            logger.info("Portal seed: refreshed demo clients, Rosie links, and legacy appointment providers.")
             return
 
 
