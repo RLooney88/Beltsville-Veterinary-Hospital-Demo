@@ -19,6 +19,10 @@ from models import (
     ClinicHours,
     LeadSubmission,
     StaffConfig,
+    Client,
+    ClientPetLink,
+    Pet,
+    PetAppointment,
 )
 
 # Eastern time for all clinic-facing operations.
@@ -263,6 +267,32 @@ async def book_appointment(payload: BookRequest, db: AsyncSession = Depends(get_
         tech_ends_at=start_utc + timedelta(minutes=type_.tech_mins),
     )
     db.add(appt)
+
+    # If this booking came from a known client portal pet, mirror it into the
+    # pet's portal appointment history so admin appointments and client records
+    # reflect the same shared data.
+    if payload.client_email and payload.pet_name:
+        pet_res = await db.execute(
+            select(Pet)
+            .join(ClientPetLink, ClientPetLink.pet_id == Pet.id)
+            .join(Client, Client.id == ClientPetLink.client_id)
+            .where(
+                Client.email == payload.client_email.lower(),
+                Pet.name.ilike(payload.pet_name),
+            )
+        )
+        portal_pet = pet_res.scalars().first()
+        if portal_pet:
+            local_start = start_utc.astimezone(CLINIC_TZ)
+            db.add(PetAppointment(
+                pet_id=portal_pet.id,
+                date=local_start.strftime("%Y-%m-%d"),
+                reason=type_.name,
+                provider="Beltsville Veterinary Hospital",
+                status="upcoming",
+                notes=f"Booked online for {local_start.strftime('%I:%M %p').lstrip('0')}. Booking ID: {appt.id}",
+            ))
+
     await db.commit()
     await db.refresh(appt)
     return _appt_to_dict(appt)

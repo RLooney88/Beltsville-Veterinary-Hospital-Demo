@@ -15,7 +15,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 from pydantic import BaseModel, EmailStr, ConfigDict
 
-from auth import hash_password, verify_password, create_access_token
+from auth import hash_password, verify_password, create_access_token, get_current_admin
 from database import get_db
 from models import Client, Pet, ClientPetLink, PetContact, PetHealthRecord, PetAppointment
 
@@ -123,6 +123,13 @@ class PetOut(BaseModel):
 
 class PetPhotoUpdate(BaseModel):
     photo_url: str
+
+class AdminHealthRecordIn(BaseModel):
+    record_type: str
+    name: str
+    date_performed: str
+    next_due: str | None = None
+    notes: str | None = None
 
 
 # --- Routes ---
@@ -247,3 +254,83 @@ async def update_pet_photo(
     await db.commit()
     await db.refresh(pet)
     return PetOut.model_validate(pet)
+
+
+# --- Admin portal-record routes ---
+@portal.get("/admin/clients")
+async def admin_list_clients(
+    _admin=Depends(get_current_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    res = await db.execute(
+        select(Client).options(
+            selectinload(Client.pet_links).selectinload(ClientPetLink.pet).selectinload(Pet.health_records),
+            selectinload(Client.pet_links).selectinload(ClientPetLink.pet).selectinload(Pet.appointments),
+            selectinload(Client.pet_links).selectinload(ClientPetLink.pet).selectinload(Pet.contacts),
+        ).order_by(Client.email)
+    )
+    clients = res.scalars().unique().all()
+    return [
+        {
+            "id": c.id,
+            "email": c.email,
+            "first_name": c.first_name,
+            "last_name": c.last_name,
+            "phone": c.phone,
+            "pets": [PetOut.model_validate(link.pet).model_dump() for link in c.pet_links if link.pet],
+        }
+        for c in clients
+    ]
+
+
+@portal.get("/admin/pets/{pet_id}", response_model=PetOut)
+async def admin_get_pet(
+    pet_id: str,
+    _admin=Depends(get_current_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    res = await db.execute(
+        select(Pet).where(Pet.id == pet_id).options(
+            selectinload(Pet.contacts),
+            selectinload(Pet.health_records),
+            selectinload(Pet.appointments),
+        )
+    )
+    pet = res.scalar_one_or_none()
+    if not pet:
+        raise HTTPException(404, "Pet not found")
+    return PetOut.model_validate(pet)
+
+
+@portal.post("/admin/pets/{pet_id}/health-records", response_model=HealthRecordOut, status_code=201)
+async def admin_create_health_record(
+    pet_id: str,
+    payload: AdminHealthRecordIn,
+    _admin=Depends(get_current_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    pet = (await db.execute(select(Pet).where(Pet.id == pet_id))).scalar_one_or_none()
+    if not pet:
+        raise HTTPException(404, "Pet not found")
+    rec = PetHealthRecord(pet_id=pet_id, **payload.model_dump())
+    db.add(rec)
+    await db.commit()
+    await db.refresh(rec)
+    return HealthRecordOut.model_validate(rec)
+
+
+@portal.patch("/admin/health-records/{record_id}", response_model=HealthRecordOut)
+async def admin_update_health_record(
+    record_id: str,
+    payload: AdminHealthRecordIn,
+    _admin=Depends(get_current_admin),
+    db: AsyncSession = Depends(get_db),
+):
+    rec = (await db.execute(select(PetHealthRecord).where(PetHealthRecord.id == record_id))).scalar_one_or_none()
+    if not rec:
+        raise HTTPException(404, "Health record not found")
+    for k, v in payload.model_dump().items():
+        setattr(rec, k, v)
+    await db.commit()
+    await db.refresh(rec)
+    return HealthRecordOut.model_validate(rec)

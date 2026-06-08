@@ -131,11 +131,11 @@ async def seed() -> None:
         staff.min_lead_time_hours = 4
 
         appointment_specs = [
-            ("Wellness Exam / New Client Visit", "Routine wellness care, vaccines, preventive screening, and the new-client first wellness exam offer.", 40, 30, 40, "#14345B", 10),
-            ("Same-Day Sick Visit Request", "For vomiting, diarrhea, limping, not eating, coughing, urinary issues, or a pet who is not acting like themselves. Call ahead for urgent needs.", 30, 30, 30, "#E15D3B", 20),
-            ("Dental Care Consultation", "Dental exam, cleaning planning, oral pain concerns, extractions, and full-mouth X-ray discussions.", 30, 30, 30, "#247480", 30),
-            ("Surgery Consultation", "Spay/neuter, soft tissue surgery, mass removals, laceration repair, and procedure planning.", 30, 30, 30, "#B9462B", 40),
-            ("Boarding Inquiry", "Day, overnight, or medical boarding for current dog and cat clients.", 20, 10, 20, "#6C8D8F", 50),
+            ("Wellness Exam / New Client Visit", "Routine wellness care, vaccines, preventive screening, and the new-client first wellness exam offer.", 40, 30, 40, "#30728e", 10),
+            ("Same-Day Sick Visit Request", "For vomiting, diarrhea, limping, not eating, coughing, urinary issues, or a pet who is not acting like themselves. Call ahead for urgent needs.", 30, 30, 30, "#3b8da4", 20),
+            ("Dental Care Consultation", "Dental exam, cleaning planning, oral pain concerns, extractions, and full-mouth X-ray discussions.", 30, 30, 30, "#3b8da4", 30),
+            ("Surgery Consultation", "Spay/neuter, soft tissue surgery, mass removals, laceration repair, and procedure planning.", 30, 30, 30, "#30728e", 40),
+            ("Boarding Inquiry", "Day, overnight, or medical boarding for current dog and cat clients.", 20, 10, 20, "#ced0d0", 50),
         ]
         for name, description, duration, doctor_mins, tech_mins, color, sort_order in appointment_specs:
             res = await db.execute(select(AppointmentType).where(AppointmentType.name == name))

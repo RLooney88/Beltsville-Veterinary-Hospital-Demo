@@ -15,22 +15,44 @@ logger = logging.getLogger(__name__)
 
 async def seed_portal():
     async with AsyncSessionLocal() as db:
-        # Check if already seeded
-        res = await db.execute(select(Client).where(Client.email == "demo-client@example.com"))
-        if res.scalar_one_or_none():
-            logger.info("Portal seed: already seeded, skipping.")
+        # Keep both required demo accounts available. The legacy account is Roddy's
+        # seeded portal account; Demo@Demo.com is the public demo-client login.
+        async def upsert_client(email: str, password: str, first_name: str, last_name: str, phone: str | None):
+            res = await db.execute(select(Client).where(Client.email == email.lower()))
+            client = res.scalar_one_or_none()
+            if client:
+                client.password_hash = hash_password(password)
+                client.first_name = first_name
+                client.last_name = last_name
+                client.phone = phone
+            else:
+                client = Client(
+                    email=email.lower(),
+                    password_hash=hash_password(password),
+                    first_name=first_name,
+                    last_name=last_name,
+                    phone=phone,
+                )
+                db.add(client)
+                await db.flush()
+            return client
+
+        client = await upsert_client("demo-client@example.com", "Rosie2026!", "Roddy", "Looney", "(410) 555-0199")
+        demo_client = await upsert_client("Demo@Demo.com", "Demo2026!", "Demo", "Client", "(301) 937-3020")
+
+        # If Rosie already exists, make sure both demo clients are linked and stop
+        # after credential refresh.
+        existing_rosie = await db.execute(select(Pet).where(Pet.name == "Rosie"))
+        rosie_existing = existing_rosie.scalar_one_or_none()
+        if rosie_existing:
+            for c in (client, demo_client):
+                link = await db.execute(select(ClientPetLink).where(ClientPetLink.client_id == c.id, ClientPetLink.pet_id == rosie_existing.id))
+                if not link.scalar_one_or_none():
+                    db.add(ClientPetLink(client_id=c.id, pet_id=rosie_existing.id, role="owner"))
+            await db.commit()
+            logger.info("Portal seed: refreshed demo clients and Rosie links.")
             return
 
-        # Create client
-        client = Client(
-            email="demo-client@example.com",
-            password_hash=hash_password("Rosie2026!"),
-            first_name="Roddy",
-            last_name="Looney",
-            phone="(410) 555-0199",
-        )
-        db.add(client)
-        await db.flush()
 
         # Create pet: Rosie the Chizon
         rosie = Pet(
@@ -46,8 +68,9 @@ async def seed_portal():
         db.add(rosie)
         await db.flush()
 
-        # Link client to pet
+        # Link clients to pet
         db.add(ClientPetLink(client_id=client.id, pet_id=rosie.id, role="owner"))
+        db.add(ClientPetLink(client_id=demo_client.id, pet_id=rosie.id, role="owner"))
 
         # Contacts for Rosie
         db.add(PetContact(pet_id=rosie.id, name="Demo Client", relation="owner", phone="(410) 555-0199", email="demo-client@example.com"))
@@ -71,4 +94,4 @@ async def seed_portal():
         db.add(PetAppointment(pet_id=rosie.id, date="2026-06-10", reason="Annual Wellness Exam", provider="Dr. Kathryn Fink", status="upcoming"))
 
         await db.commit()
-        logger.info("Portal seed: created Demo Client + Rosie the Chizon with full health records.")
+        logger.info("Portal seed: created/updated demo clients + Rosie the Chizon with full health records.")
