@@ -18,8 +18,7 @@ from secrets import token_urlsafe
 from dotenv import load_dotenv
 from fastapi import APIRouter, Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from starlette.exceptions import HTTPException as StarletteHTTPException
+from spa_static import SPAStaticFiles
 from sqlalchemy import desc, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -1169,18 +1168,6 @@ app.add_middleware(
 )
 
 # Serve the React build when deployed as a single Railway service.
-class SPAStaticFiles(StaticFiles):
-    """StaticFiles variant that falls back to React's index.html for SPA routes."""
-
-    async def get_response(self, path: str, scope):
-        try:
-            return await super().get_response(path, scope)
-        except StarletteHTTPException as exc:
-            if exc.status_code == 404:
-                return await super().get_response("index.html", scope)
-            raise
-
-
 FRONTEND_BUILD_DIR = Path(__file__).resolve().parent.parent / "frontend" / "build"
 if FRONTEND_BUILD_DIR.exists():
     app.mount("/", SPAStaticFiles(directory=str(FRONTEND_BUILD_DIR), html=True), name="frontend")
