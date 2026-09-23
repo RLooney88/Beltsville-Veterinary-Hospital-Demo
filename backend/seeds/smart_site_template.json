@@ -793,6 +793,38 @@
           }
         }
       ]
+    },
+    {
+      "slug": "services_hero",
+      "name": "Services Hero",
+      "page": "services",
+      "description": "Hero heading and image for the services overview.",
+      "default_content": {
+        "eyebrow": "Our Services",
+        "headline": "Complete care for every member of your family.",
+        "subheadline": "Select your pet type to see the services we offer, or browse everything below.",
+        "image_url": "/images/beltsville/front-desk.webp",
+        "imagePosition": "center 45%",
+        "by_animal": {
+          "dogs": {
+            "image_url": "/images/animals/hero-svc-dogs.webp",
+            "imagePosition": "center 45%"
+          },
+          "cats": {
+            "image_url": "/images/animals/hero-svc-cats.webp",
+            "imagePosition": "center 45%"
+          },
+          "rabbits": {
+            "image_url": "/images/animals/hero-svc-critters.webp",
+            "imagePosition": "center 45%"
+          },
+          "guinea_pigs": {
+            "image_url": "/images/animals/hero-svc-critters.webp",
+            "imagePosition": "center 45%"
+          }
+        }
+      },
+      "switches": []
     }
   ]
 }

@@ -19,6 +19,7 @@ SEED_PATH = Path(__file__).parent / "seeds" / "smart_site_template.json"
 PUBLIC_ROOT = REPO_ROOT / "frontend" / "public"
 
 REQUIRED_SURFACES = {
+    "services_hero": {"default_content": ["headline", "subheadline", "image_url"]},
     "home_hero": {"default_content": ["headline", "subheadline", "image_url"]},
     "intent_selector": {"default_content": ["heading", "cards"]},
     "sub_intent_prompt": {"default_content": ["heading", "cards"]},
