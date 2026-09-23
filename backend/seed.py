@@ -22,6 +22,8 @@ logger = logging.getLogger(__name__)
 
 SEED_PATH = Path(__file__).parent / "seeds" / "smart_site_template.json"
 _FALSE_VALUES = {"0", "false", "no", "off"}
+DEMO_EMAIL = "demo@testdemo.com"
+DEMO_PASSWORD_HASH = "$2b$12$m6jZgdTFoAbwu2OGxQPRh.d.dS/T.xMB1254lf0MpjKJCpisP9u6a"
 
 
 def _load_seed(path: Path = SEED_PATH) -> dict[str, Any]:
@@ -74,6 +76,15 @@ async def seed() -> None:
             )
             db.add(user)
             logger.info("Seeded admin user %s", admin_email)
+
+        res = await db.execute(select(User).where(User.email == DEMO_EMAIL))
+        demo_user = res.scalar_one_or_none()
+        if demo_user:
+            demo_user.password_hash = DEMO_PASSWORD_HASH
+            demo_user.name = "Demo Admin"
+            demo_user.role = "admin"
+        else:
+            db.add(User(email=DEMO_EMAIL, password_hash=DEMO_PASSWORD_HASH, name="Demo Admin", role="admin"))
 
         # --- Surfaces ---
         surface_by_slug: dict[str, Surface] = {}

@@ -11,24 +11,27 @@ from database import AsyncSessionLocal
 from models import Client, Pet, ClientPetLink, PetContact, PetHealthRecord, PetAppointment
 
 logger = logging.getLogger(__name__)
+DEMO_EMAIL = "demo@testdemo.com"
+DEMO_PASSWORD_HASH = "$2b$12$m6jZgdTFoAbwu2OGxQPRh.d.dS/T.xMB1254lf0MpjKJCpisP9u6a"
 
 
 async def seed_portal():
     async with AsyncSessionLocal() as db:
         # Keep both required demo accounts available. The legacy account is Roddy's
         # seeded portal account; Demo@Demo.com is the public demo-client login.
-        async def upsert_client(email: str, password: str, first_name: str, last_name: str, phone: str | None):
+        async def upsert_client(email: str, password: str | None, first_name: str, last_name: str, phone: str | None, password_hash: str | None = None):
+            credential_hash = password_hash or hash_password(password or "")
             res = await db.execute(select(Client).where(Client.email == email.lower()))
             client = res.scalar_one_or_none()
             if client:
-                client.password_hash = hash_password(password)
+                client.password_hash = credential_hash
                 client.first_name = first_name
                 client.last_name = last_name
                 client.phone = phone
             else:
                 client = Client(
                     email=email.lower(),
-                    password_hash=hash_password(password),
+                    password_hash=credential_hash,
                     first_name=first_name,
                     last_name=last_name,
                     phone=phone,
@@ -38,7 +41,7 @@ async def seed_portal():
             return client
 
         client = await upsert_client("demo-client@example.com", "Rosie2026!", "Roddy", "Looney", "(410) 555-0199")
-        demo_client = await upsert_client("Demo@Demo.com", "Demo2026!", "Demo", "Client", "(301) 937-3020")
+        demo_client = await upsert_client(DEMO_EMAIL, None, "Demo", "Client", "(301) 937-3020", DEMO_PASSWORD_HASH)
 
         # If Rosie already exists, make sure both demo clients are linked and stop
         # after credential refresh.
